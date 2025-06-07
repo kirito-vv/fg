@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Eyshila 💌</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f9c5d1, #fbc2eb);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .envelope-container {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(to bottom, #ffccd5, #ffe5ec);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: fadeOut 2s ease-in-out 5s forwards;
+    }
+
+    .envelope {
+      width: 300px;
+      height: 200px;
+      background: #fff;
+      position: relative;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .envelope::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: #ff4d6d;
+      transform: rotate(45deg);
+      transform-origin: top left;
+    }
+
+    .message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.5rem;
+      color: #c9184a;
+      font-family: 'Great Vibes', cursive;
+    }
+
+    .hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff4d6d;
+      font-size: 2rem;
+      animation: float 4s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-300px) scale(1.5); opacity: 0; }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 20px;
+      font-size: 2.5em;
+      font-weight: bold;
+      text-shadow: 2px 2px 6px #000;
+      display: none;
+    }
+
+    .section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+      display: none;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section img {
+      max-width: 90%;
+      max-height: 70vh;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .frase {
+      margin-top: 20px;
+      font-size: 1.5em;
+      text-align: center;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    audio {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <div class="envelope-container">
+    <div class="envelope">
+      <div class="message">Para: Eyshila 💌</div>
+      <div class="hearts">
+        <div class="heart" style="left: 10%; animation-delay: 0s;">❤️</div>
+        <div class="heart" style="left: 25%; animation-delay: 0.5s;">💕</div>
+        <div class="heart" style="left: 40%; animation-delay: 1s;">💖</div>
+        <div class="heart" style="left: 55%; animation-delay: 1.5s;">💘</div>
+        <div class="heart" style="left: 70%; animation-delay: 2s;">💝</div>
+        <div class="heart" style="left: 85%; animation-delay: 2.5s;">💞</div>
+      </div>
+    </div>
+  </div>
+
+  <header id="mainHeader">Diego & Eyshila 💖</header>
+
+  <div class="section">
+    <img src="IMG-20250605-WA0013.jpg" alt="Foto 1" />
+    <div class="frase">"Você é o meu sorriso mais sincero."</div>
+  </div>
+
+  <div class="section">
+    <img src="IMG-20250605-WA0012.jpg" alt="Foto 2" />
+    <div class="frase">"Nos teus braços é onde eu me sinto em casa."</div>
+  </div>
+
+  <div class="section">
+    <img src="IMG-20250605-WA0014.jpg" alt="Foto 3" />
+    <div class="frase">"Cada momento com você é eterno."</div>
+  </div>
+
+  <div class="section">
+    <img src="IMG-20250605-WA0015.jpg" alt="Foto 4" />
+    <div class="frase">
+      "Eyshila, independente de por um momento difícil, mas nada disso apaga o que construímos. Amar você sempre foi mais do que um sentimento — foi um reconhecimento de alma, como se eu já soubesse que te amaria antes mesmo de te conhecer.<br><br>
+      Mesmo em meio às incertezas, meu coração ainda escolhe você — com calma, com verdade, com esperança."
+    </div>
+  </div>
+
+  <audio id="musica" autoplay loop>
+    <source src="golden hour.mp3" type="audio/mpeg" />
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <script>
+    window.addEventListener('load', () => {
+      const audio = document.getElementById('musica');
+      audio.play().catch(() => {
+        console.log("Autoplay com som foi bloqueado.");
+      });
+    });
+
+    setTimeout(() => {
+      document.getElementById('mainHeader').style.display = 'block';
+      document.querySelectorAll('.section').forEach(sec => {
+        sec.style.display = 'flex';
+      });
+    }, 5200);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
